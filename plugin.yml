@@ -1,0 +1,6 @@
+name: PlayerAttributes
+main: playerattributes.PlayerAttributes
+version: 1.0
+description: Player Attributes
+author: Gu3rr1lla
+database: false
