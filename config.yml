@@ -1,0 +1,12 @@
+mysql:
+  username: 'root'
+  host: localhost
+  enable: true
+  password: ''
+  database: bukkit
+  port: 3306
+defaults:
+  speed: 10
+  stamina: 10
+  bodyfat: 10
+  muscle: 10
