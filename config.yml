@@ -12,8 +12,8 @@ defaults:
   muscle: 10
 edibles:
 - material: APPLE
-  fat: 2
-  protein: 3
+  fat: 2.3
+  protein: 3.4
 - material: BREAD
-  fat: 5
-  protein: 1
+  fat: 5.1
+  protein: 1.9

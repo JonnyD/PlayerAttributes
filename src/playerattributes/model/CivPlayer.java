@@ -44,6 +44,11 @@ public class CivPlayer
 	public void setBodyfat(double bodyfat) {
 		this.bodyfat = bodyfat;
 	}
+	
+	public void addBodyFat(double fat)
+	{
+		this.bodyfat += fat;
+	}
 
 	public double getMuscle() {
 		return muscle;

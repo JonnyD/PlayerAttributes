@@ -31,6 +31,8 @@ public class ConfigManager
 	private int defaultBodyFat;
 	private int defaultMuscle;
 	
+	private List<?> edibles;
+	
 	public ConfigManager()
 	{
 		this.plugin = PlayerAttributes.getInstance();
@@ -71,13 +73,7 @@ public class ConfigManager
 		defaultBodyFat = loadInt("defaults.bodyfat");
 		defaultMuscle  = loadInt("defaults.muscle");
 		
-		EdibleManager edibleManager = PlayerAttributes.getEdibleManager();
-		List<?> edibles = loadList("edibles");
-		for(Object object : edibles)
-		{
-			LinkedHashMap map = (LinkedHashMap) object;
-			edibleManager.createEdible(map);
-		}
+		edibles = loadList("edibles");
 	}
 	
 	private Boolean loadBoolean(String path)
@@ -257,5 +253,13 @@ public class ConfigManager
 
 	public void setDefaultMuscle(int defaultMuscle) {
 		this.defaultMuscle = defaultMuscle;
+	}
+
+	public List<?> getEdibles() {
+		return edibles;
+	}
+
+	public void setEdibles(List<?> edibles) {
+		this.edibles = edibles;
 	}
 }
