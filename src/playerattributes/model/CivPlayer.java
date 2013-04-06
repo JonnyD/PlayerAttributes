@@ -9,6 +9,7 @@ public class CivPlayer
 	private double stamina;
 	private double bodyfat;
 	private double muscle;
+	private double distanceRan;
 
 	public CivPlayer(Player player) 
 	{
@@ -52,16 +53,30 @@ public class CivPlayer
 		this.muscle = muscle;
 	}
 
+	public double getDistanceRan() {
+		return distanceRan;
+	}
+
+	public void setDistanceRan(double distanceRan) {
+		this.distanceRan = distanceRan;
+	}
+	
+	public void addDistanceRan(double distanceRan)
+	{
+		this.distanceRan += distanceRan;
+	}
+
 	public Player getPlayer() {
 		return player;
 	}
 
 	@Override
 	public String toString() {
-		return "CivPlayer [getUsername()=" + getUsername() + ", getSpeed()="
-				+ getSpeed() + ", getStamina()=" + getStamina()
-				+ ", getBodyfat()=" + getBodyfat() + ", getMuscle()="
-				+ getMuscle() + ", getPlayer()=" + getPlayer() + "]";
+		return "CivPlayer [player=" + player + ", speed=" + speed
+				+ ", stamina=" + stamina + ", bodyfat=" + bodyfat + ", muscle="
+				+ muscle + ", distanceRan=" + distanceRan + "]";
 	}
+	
+	
 
 }
