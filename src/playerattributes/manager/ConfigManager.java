@@ -3,6 +3,7 @@ package playerattributes.manager;
 import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -65,11 +66,18 @@ public class ConfigManager
 		database = loadString("mysql.database");
 		port     = loadInt("mysql.port");
 		
-		defaultSpeed = loadInt("defaults.speed");
+		defaultSpeed   = loadInt("defaults.speed");
 		defaultStamina = loadInt("defaults.stamina");
 		defaultBodyFat = loadInt("defaults.bodyfat");
-		defaultMuscle = loadInt("defaults.muscle");
+		defaultMuscle  = loadInt("defaults.muscle");
 		
+		EdibleManager edibleManager = PlayerAttributes.getEdibleManager();
+		List<?> edibles = loadList("edibles");
+		for(Object object : edibles)
+		{
+			LinkedHashMap map = (LinkedHashMap) object;
+			edibleManager.createEdible(map);
+		}
 	}
 	
 	private Boolean loadBoolean(String path)
@@ -124,6 +132,18 @@ public class ConfigManager
     	if(config.isList(path))
     	{
     		List<String> value = config.getStringList(path);
+    		cleanConfig.set(path, value);
+    		return value;
+    	}
+    	
+    	return null;
+    }
+    
+    private List<?> loadList(String path)
+    {
+    	if(config.isList(path))
+    	{
+    		List<?> value = config.getList(path);
     		cleanConfig.set(path, value);
     		return value;
     	}

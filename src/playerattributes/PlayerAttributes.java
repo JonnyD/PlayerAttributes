@@ -7,12 +7,14 @@ import org.bukkit.plugin.java.JavaPlugin;
 import playerattributes.listener.PlayerListener;
 import playerattributes.manager.CivPlayerManager;
 import playerattributes.manager.ConfigManager;
+import playerattributes.manager.EdibleManager;
 
 public class PlayerAttributes extends JavaPlugin
 {
 	private static PlayerAttributes instance;
 	private static CivPlayerManager civPlayerManager;
 	private static ConfigManager configManager;
+	private static EdibleManager edibleManager;
 	
 	public void onEnable()
 	{
@@ -25,6 +27,7 @@ public class PlayerAttributes extends JavaPlugin
 	{
 		configManager    = new ConfigManager();
 		civPlayerManager = new CivPlayerManager();
+		edibleManager    = new EdibleManager();
 	}
 	
 	public void registerEvents()
@@ -41,6 +44,11 @@ public class PlayerAttributes extends JavaPlugin
 	public static ConfigManager getConfigManager()
 	{
 		return configManager;
+	}
+	
+	public static EdibleManager getEdibleManager()
+	{
+		return edibleManager;
 	}
 
 	public static PlayerAttributes getInstance()

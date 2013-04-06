@@ -10,3 +10,10 @@ defaults:
   stamina: 10
   bodyfat: 10
   muscle: 10
+edibles:
+- material: APPLE
+  fat: 2
+  protein: 3
+- material: BREAD
+  fat: 5
+  protein: 1
