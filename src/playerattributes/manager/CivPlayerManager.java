@@ -55,24 +55,31 @@ public class CivPlayerManager
 	
 	public CivPlayer getOrCreateCivPlayer(Player player)
 	{
-		CivPlayer civPlayer = null;
-		String username = player.getDisplayName();
-		
-		if(isCivPlayer(username))
+		String username     = player.getDisplayName();	
+		CivPlayer civPlayer = getCivPlayer(username);
+		if(civPlayer == null)
 		{
-			civPlayer = getCivPlayer(username);
-		}
-		else
-		{
-			ConfigManager configManager = PlayerAttributes.getConfigManager();
 			civPlayer = new CivPlayer(player);
-			civPlayer.setBodyfat(configManager.getDefaultBodyFat());
-			civPlayer.setMuscle(configManager.getDefaultMuscle());
-			civPlayer.setSpeed(configManager.getDefaultSpeed());
-			civPlayer.setStamina(configManager.getDefaultStamina());
-			addCivPlayer(civPlayer);			
+			civPlayer = setDefaultCivPlayer(civPlayer);
+			addCivPlayer(civPlayer);
 		}
-		
+		return civPlayer;
+	}
+	
+	public void createDefaultCivPlayer(Player player)
+	{
+		CivPlayer civPlayer = new CivPlayer(player);
+		civPlayer = setDefaultCivPlayer(civPlayer);
+		addCivPlayer(civPlayer);
+	}
+	
+	public CivPlayer setDefaultCivPlayer(CivPlayer civPlayer)
+	{
+		ConfigManager configManager = PlayerAttributes.getConfigManager();
+		civPlayer.setBodyfat(configManager.getDefaultBodyFat());
+		civPlayer.setMuscle(configManager.getDefaultMuscle());
+		civPlayer.setSpeed(configManager.getDefaultSpeed());
+		civPlayer.setStamina(configManager.getDefaultStamina());
 		return civPlayer;
 	}
 }
