@@ -4,3 +4,7 @@ version: 1.0
 description: Player Attributes
 author: Gu3rr1lla
 database: false
+commands:
+  pastats:
+    description: Displays stats.
+    usage: /pastats
