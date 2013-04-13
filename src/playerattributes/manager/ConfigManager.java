@@ -16,6 +16,8 @@ public class ConfigManager
 {
 	private PlayerAttributes plugin;
 	
+	private int ticksPerSecond;
+	
 	private String username;
 	private String host;
 	private String password;
@@ -74,6 +76,8 @@ public class ConfigManager
 		defaultMuscle  = loadInt("defaults.muscle");
 		
 		edibles = loadList("edibles");
+		
+		ticksPerSecond = 20;
 	}
 	
 	private Boolean loadBoolean(String path)
@@ -253,6 +257,14 @@ public class ConfigManager
 
 	public void setDefaultMuscle(int defaultMuscle) {
 		this.defaultMuscle = defaultMuscle;
+	}
+
+	public int getTicksPerSecond() {
+		return ticksPerSecond;
+	}
+
+	public void setTicksPerSecond(int ticksPerSecond) {
+		this.ticksPerSecond = ticksPerSecond;
 	}
 
 	public List<?> getEdibles() {
