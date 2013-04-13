@@ -6,7 +6,7 @@ public class CivPlayer
 {
 	private final Player player;
 	private int speed;
-	private double stamina;
+	private int stamina;
 	private double bodyfat;
 	private double muscle;
 	private double distanceRan;
@@ -29,11 +29,11 @@ public class CivPlayer
 		this.speed = speed;
 	}
 
-	public double getStamina() {
+	public int getStamina() {
 		return stamina;
 	}
 
-	public void setStamina(double stamina) {
+	public void setStamina(int stamina) {
 		this.stamina = stamina;
 	}
 
